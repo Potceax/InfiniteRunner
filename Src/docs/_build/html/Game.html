@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game package &mdash; InfiniteRunner (chrome dinosaur game replica) 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="InfiniteRunner" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            InfiniteRunner (chrome dinosaur game replica)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">InfiniteRunner</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Game package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.Constants">Game.Constants module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Constants.load_asset"><code class="docutils literal notranslate"><span class="pre">load_asset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Constants.read_asset"><code class="docutils literal notranslate"><span class="pre">read_asset()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.Game">Game.Game module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Game.play"><code class="docutils literal notranslate"><span class="pre">play()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.Input">Game.Input module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Input.InputHandler"><code class="docutils literal notranslate"><span class="pre">InputHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.Object">Game.Object module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Object.Bird"><code class="docutils literal notranslate"><span class="pre">Bird</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Object.Object"><code class="docutils literal notranslate"><span class="pre">Object</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Object.ObjectHandler"><code class="docutils literal notranslate"><span class="pre">ObjectHandler</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.Player">Game.Player module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Player.Action"><code class="docutils literal notranslate"><span class="pre">Action</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Player.ActionHandler"><code class="docutils literal notranslate"><span class="pre">ActionHandler</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Player.Dinosaur"><code class="docutils literal notranslate"><span class="pre">Dinosaur</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Player.Duck"><code class="docutils literal notranslate"><span class="pre">Duck</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Player.Jump"><code class="docutils literal notranslate"><span class="pre">Jump</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Player.Run"><code class="docutils literal notranslate"><span class="pre">Run</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.Screen">Game.Screen module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Screen.Cloud"><code class="docutils literal notranslate"><span class="pre">Cloud</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Screen.Restart"><code class="docutils literal notranslate"><span class="pre">Restart</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Screen.Score"><code class="docutils literal notranslate"><span class="pre">Score</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Screen.Screen"><code class="docutils literal notranslate"><span class="pre">Screen</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Game.Screen.UIElement"><code class="docutils literal notranslate"><span class="pre">UIElement</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game.test_game">Game.test_game module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Game.test_game.TestGame"><code class="docutils literal notranslate"><span class="pre">TestGame</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Game">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">InfiniteRunner (chrome dinosaur game replica)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">InfiniteRunner</a></li>
+      <li class="breadcrumb-item active">Game package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Game.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="game-package">
+<h1>Game package<a class="headerlink" href="#game-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-Game.Constants">
+<span id="game-constants-module"></span><h2>Game.Constants module<a class="headerlink" href="#module-Game.Constants" title="Link to this heading"></a></h2>
+<p>File containing all constant values used in the game, also is used to load assets from folder named “Images”</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Game.Constants.load_asset">
+<span class="sig-prename descclassname"><span class="pre">Game.Constants.</span></span><span class="sig-name descname"><span class="pre">load_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Surface</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/Game/Constants.html#load_asset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Constants.load_asset" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Look through the folders/files in the root_path. </dt><dd><p>From the found folders extract list of files to coresponding key (folder name)
+If found folders contain other folders repeat the process.</p>
+</dd>
+<dt>Args:</dt><dd><p>root_path (str): path to the folder containing assets</p>
+</dd>
+<dt>Returns:</dt><dd><p>Dict[str, List[pygame.Surface]]: container for image files belonging to coresponding folder name</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Game.Constants.read_asset">
+<span class="sig-prename descclassname"><span class="pre">Game.Constants.</span></span><span class="sig-name descname"><span class="pre">read_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">asset_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Surface</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/Game/Constants.html#read_asset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Constants.read_asset" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>Read the folder and extract all files that are accepted as an image</dt><dd><p>use folder name as a tag for the assets</p>
+</dd>
+<dt>Args:</dt><dd><p>asset_path (str): asset folder path</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple[str, List[pygame.Surface]]: list of images with the folder tag name</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-Game.Game">
+<span id="game-game-module"></span><h2>Game.Game module<a class="headerlink" href="#module-Game.Game" title="Link to this heading"></a></h2>
+<p>Main file of the module, used to create game instance</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Game.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><a class="reference internal" href="_modules/Game/Game.html#Game"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Game.Game.on_cleanup">
+<span class="sig-name descname"><span class="pre">on_cleanup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Game.html#Game.on_cleanup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game.on_cleanup" title="Link to this definition"></a></dt>
+<dd><p>Clean up and quit the game.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Game.Game.on_event">
+<span class="sig-name descname"><span class="pre">on_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Game.html#Game.on_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game.on_event" title="Link to this definition"></a></dt>
+<dd><p>Handle events during the game.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event: The event to handle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Game.Game.on_exec">
+<span class="sig-name descname"><span class="pre">on_exec</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Game.html#Game.on_exec"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game.on_exec" title="Link to this definition"></a></dt>
+<dd><p>Execute the main game loop.
+This function initializes the game, enters a loop to handle events, update the game state, and render the screen,
+and finally cleans up before exiting the loop.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Game.Game.on_init">
+<span class="sig-name descname"><span class="pre">on_init</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Game.html#Game.on_init"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game.on_init" title="Link to this definition"></a></dt>
+<dd><p>Initialize additional variables.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Game.Game.on_loop">
+<span class="sig-name descname"><span class="pre">on_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Game.html#Game.on_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game.on_loop" title="Link to this definition"></a></dt>
+<dd><p>Update the game state in each game loop iteration.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Game.Game.on_render">
+<span class="sig-name descname"><span class="pre">on_render</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Game.html#Game.on_render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.Game.on_render" title="Link to this definition"></a></dt>
+<dd><p>Render the game state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="Game.Game.play">
+<span class="sig-prename descclassname"><span class="pre">Game.Game.</span></span><span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Game.html#play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Game.play" title="Link to this definition"></a></dt>
+<dd><p>Main function to activate the game</p>
+</dd></dl>
+
+</section>
+<section id="module-Game.Input">
+<span id="game-input-module"></span><h2>Game.Input module<a class="headerlink" href="#module-Game.Input" title="Link to this heading"></a></h2>
+<p>File for input handle</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Input.InputHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Input.</span></span><span class="sig-name descname"><span class="pre">InputHandler</span></span><a class="reference internal" href="_modules/Game/Input.html#InputHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Input.InputHandler" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Input.InputHandler.get_keyboard_input">
+<span class="sig-name descname"><span class="pre">get_keyboard_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Input.html#InputHandler.get_keyboard_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Input.InputHandler.get_keyboard_input" title="Link to this definition"></a></dt>
+<dd><p>Get the state of keyboard input.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>dict: A dictionary representing the state of keyboard input for specified buttons.</dt><dd><p>Keys are button constants, and values are boolean indicating whether the button is pressed.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Input.InputHandler.on_startup">
+<span class="sig-name descname"><span class="pre">on_startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Input.html#InputHandler.on_startup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Input.InputHandler.on_startup" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Game.Object">
+<span id="game-object-module"></span><h2>Game.Object module<a class="headerlink" href="#module-Game.Object" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Object.Bird">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Object.</span></span><span class="sig-name descname"><span class="pre">Bird</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Surface</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Object.html#Bird"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.Bird" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Game.Object.Object" title="Game.Object.Object"><code class="xref py py-class docutils literal notranslate"><span class="pre">Object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.Bird.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Object.html#Bird.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.Bird.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the bird on the screen with animation.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen (Surface): The screen to draw on.
+pos: Position tuple for drawing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Object.Object">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Object.</span></span><span class="sig-name descname"><span class="pre">Object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Object.html#Object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.Object" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.Object.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Object.html#Object.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.Object.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the object on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen (surface.Surface): The screen to draw on.
+pos: Position tuple for drawing.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.Object.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Object.html#Object.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.Object.update" title="Link to this definition"></a></dt>
+<dd><p>Update the object’s position based on the game speed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game_speed (int): Current game speed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Object.</span></span><span class="sig-name descname"><span class="pre">ObjectHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Game.Player.Dinosaur" title="Game.Player.Dinosaur"><span class="pre">Dinosaur</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler.add_type">
+<span class="sig-name descname"><span class="pre">add_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Game.Object.Object" title="Game.Object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Surface</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler.add_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler.add_type" title="Link to this definition"></a></dt>
+<dd><p>Add tuple type that is not in the type_list to list</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>type_t (Tuple[Type[Object], surface.Surface]): tuple type to add</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler.add_types">
+<span class="sig-name descname"><span class="pre">add_types</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Type</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#Game.Object.Object" title="Game.Object.Object"><span class="pre">Object</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Surface</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler.add_types"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler.add_types" title="Link to this definition"></a></dt>
+<dd><p>join the argument list with the tuple type list</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>type_t (List[Tuple[Type[Object], surface.Surface]]): type list to join</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler.collision_check">
+<span class="sig-name descname"><span class="pre">collision_check</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler.collision_check"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler.collision_check" title="Link to this definition"></a></dt>
+<dd><p>Check each obj element in object_list for player collision.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: Whether collision is detected.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler.create_object">
+<span class="sig-name descname"><span class="pre">create_object</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">how_much</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_init</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler.create_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler.create_object" title="Link to this definition"></a></dt>
+<dd><p>Take a random tuple from the object_type_list and create an object from it.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>how_much (int, optional): Number of objects to create. Defaults to 1.
+is_init (bool, optional): Whether it is the initial object creation. Defaults to True.
+prev_x (int, optional): Previous x-coordinate. Defaults to 0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw every object in the list
+Args:</p>
+<blockquote>
+<div><p>screen (surface.Surface): Screen to add to</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Object.ObjectHandler.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_speed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Object.html#ObjectHandler.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Object.ObjectHandler.update" title="Link to this definition"></a></dt>
+<dd><dl class="simple">
+<dt>update every object in the list</dt><dd><p>if they are out of the screen drop them from the list</p>
+</dd>
+<dt>Args:</dt><dd><p>game_speed (int): current game speed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Game.Player">
+<span id="game-player-module"></span><h2>Game.Player module<a class="headerlink" href="#module-Game.Player" title="Link to this heading"></a></h2>
+<p>file used for player character creation (dinosaur)</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Player.Action">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Player.</span></span><span class="sig-name descname"><span class="pre">Action</span></span><a class="reference internal" href="_modules/Game/Player.html#Action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Action" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Action.action">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Player.html#Action.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Action.action" title="Link to this definition"></a></dt>
+<dd><p>Abstract method for defining the action behavior.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>player: The player object to apply the action to.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Action.activate">
+<span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Action.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Action.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the action.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Action.deactivate">
+<span class="sig-name descname"><span class="pre">deactivate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Action.deactivate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Action.deactivate" title="Link to this definition"></a></dt>
+<dd><p>Deactivate the action.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Player.ActionHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Player.</span></span><span class="sig-name descname"><span class="pre">ActionHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#ActionHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.ActionHandler" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.ActionHandler.activate">
+<span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#ActionHandler.activate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.ActionHandler.activate" title="Link to this definition"></a></dt>
+<dd><p>Activate the current action for the player.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.ActionHandler.add_action">
+<span class="sig-name descname"><span class="pre">add_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Game.Player.Action" title="Game.Player.Action"><span class="pre">Action</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Player.html#ActionHandler.add_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.ActionHandler.add_action" title="Link to this definition"></a></dt>
+<dd><p>Add an action to the handler.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>action (Action): The action to add.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.ActionHandler.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/Game/Player.html#ActionHandler.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.ActionHandler.handle" title="Link to this definition"></a></dt>
+<dd><p>Handle the activation (activate/deactivate) of a specific action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>actionType (str): The type of action to handle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.ActionHandler.is_action_activated">
+<span class="sig-name descname"><span class="pre">is_action_activated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">actionType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/Game/Player.html#ActionHandler.is_action_activated"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.ActionHandler.is_action_activated" title="Link to this definition"></a></dt>
+<dd><p>Check if a specific action is currently activated.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>actionType (str): The type of action to check.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the action is activated, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Player.Dinosaur">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Player.</span></span><span class="sig-name descname"><span class="pre">Dinosaur</span></span><a class="reference internal" href="_modules/Game/Player.html#Dinosaur"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Dinosaur" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Dinosaur.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Dinosaur.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Dinosaur.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the Dinosaur on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen: The screen to draw on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Dinosaur.on_loop">
+<span class="sig-name descname"><span class="pre">on_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Dinosaur.on_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Dinosaur.on_loop" title="Link to this definition"></a></dt>
+<dd><p>Update the Dinosaur’s state based on user input.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>input (dict): Dictionary representing the state of input buttons.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Dinosaur.on_render">
+<span class="sig-name descname"><span class="pre">on_render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Dinosaur.on_render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Dinosaur.on_render" title="Link to this definition"></a></dt>
+<dd><p>Render the Dinosaur on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen: The screen to render on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Dinosaur.on_startup">
+<span class="sig-name descname"><span class="pre">on_startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Dinosaur.on_startup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Dinosaur.on_startup" title="Link to this definition"></a></dt>
+<dd><p>Perform additional actions when the game starts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Dinosaur.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Dinosaur.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Dinosaur.update" title="Link to this definition"></a></dt>
+<dd><p>Update the player’s state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Player.Duck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Player.</span></span><span class="sig-name descname"><span class="pre">Duck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Surface</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Duck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Duck" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Game.Player.Action" title="Game.Player.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Duck.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Duck.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Duck.action" title="Link to this definition"></a></dt>
+<dd><p>Define the ducking action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>player: The player object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Player.Jump">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Player.</span></span><span class="sig-name descname"><span class="pre">Jump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Jump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Jump" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Game.Player.Action" title="Game.Player.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Jump.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Jump.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Jump.action" title="Link to this definition"></a></dt>
+<dd><p>Define the jumping action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>player: The player object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Player.Run">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Player.</span></span><span class="sig-name descname"><span class="pre">Run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Surface</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Run" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Game.Player.Action" title="Game.Player.Action"><code class="xref py py-class docutils literal notranslate"><span class="pre">Action</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Player.Run.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Player.html#Run.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Player.Run.action" title="Link to this definition"></a></dt>
+<dd><p>Define the running action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>player: The player object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Game.Screen">
+<span id="game-screen-module"></span><h2>Game.Screen module<a class="headerlink" href="#module-Game.Screen" title="Link to this heading"></a></h2>
+<p>File used for all objects that are shown on the screen</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Screen.Cloud">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Screen.</span></span><span class="sig-name descname"><span class="pre">Cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Cloud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Cloud" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Sprite</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Cloud.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Cloud.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Cloud.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the cloud on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen: The screen to draw on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Cloud.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game_speed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Cloud.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Cloud.update" title="Link to this definition"></a></dt>
+<dd><p>Update the cloud’s position based on the game speed.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game_speed (int): Current game speed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Screen.Restart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Screen.</span></span><span class="sig-name descname"><span class="pre">Restart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">img</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Restart"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Restart" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Game.Screen.UIElement" title="Game.Screen.UIElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">UIElement</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Restart.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Restart.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Restart.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the restart UI element on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen (pg.Surface): The screen to draw on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Restart.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Restart.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Restart.update" title="Link to this definition"></a></dt>
+<dd><p>Update the restart UI element.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game: The game instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Screen.Score">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Screen.</span></span><span class="sig-name descname"><span class="pre">Score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Score" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Game.Screen.UIElement" title="Game.Screen.UIElement"><code class="xref py py-class docutils literal notranslate"><span class="pre">UIElement</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Score.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Surface</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Score.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Score.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the score UI element on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen (pg.surface.Surface): The screen to draw on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Score.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_highScore</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Score.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Score.update" title="Link to this definition"></a></dt>
+<dd><p>Update the score UI element.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game: The game instance.
+is_highScore (bool, optional): Whether to update high score. Defaults to False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Screen.Screen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Screen.</span></span><span class="sig-name descname"><span class="pre">Screen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">player</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Game.Player.Dinosaur" title="Game.Player.Dinosaur"><span class="pre">Dinosaur</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Screen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Screen" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Screen.on_loop">
+<span class="sig-name descname"><span class="pre">on_loop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Screen.on_loop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Screen.on_loop" title="Link to this definition"></a></dt>
+<dd><p>Update the screen in each game loop iteration.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game: The game instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Screen.on_render">
+<span class="sig-name descname"><span class="pre">on_render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Screen.on_render"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Screen.on_render" title="Link to this definition"></a></dt>
+<dd><p>Render the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game: The game instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Screen.on_startup">
+<span class="sig-name descname"><span class="pre">on_startup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Screen.on_startup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Screen.on_startup" title="Link to this definition"></a></dt>
+<dd><p>Create startup canvas for game</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Screen.set_background">
+<span class="sig-name descname"><span class="pre">set_background</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Screen.set_background"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Screen.set_background" title="Link to this definition"></a></dt>
+<dd><p>Set the background (placeholder).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.Screen.set_screen_size">
+<span class="sig-name descname"><span class="pre">set_screen_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_fullscreen</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#Screen.set_screen_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.Screen.set_screen_size" title="Link to this definition"></a></dt>
+<dd><p>Screen size settings</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>width (float, optional): screen width. Defaults to 1.
+height (float, optional): screen height. Defaults to 1.
+is_fullscreen (bool, optional): defines if game should be fullscreen. Defaults to False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.Screen.UIElement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.Screen.</span></span><span class="sig-name descname"><span class="pre">UIElement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#UIElement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.UIElement" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.UIElement.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#UIElement.draw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.UIElement.draw" title="Link to this definition"></a></dt>
+<dd><p>Draw the UI element on the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>screen: The screen to draw on.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.Screen.UIElement.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/Screen.html#UIElement.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.Screen.UIElement.update" title="Link to this definition"></a></dt>
+<dd><p>Update the UI element.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>game: The game instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Game.test_game">
+<span id="game-test-game-module"></span><h2>Game.test_game module<a class="headerlink" href="#module-Game.test_game" title="Link to this heading"></a></h2>
+<p>File used for testing game</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="Game.test_game.TestGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Game.test_game.</span></span><span class="sig-name descname"><span class="pre">TestGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/test_game.html#TestGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.test_game.TestGame" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.test_game.TestGame.test_files">
+<span class="sig-name descname"><span class="pre">test_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/test_game.html#TestGame.test_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.test_game.TestGame.test_files" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Game.test_game.TestGame.test_run">
+<span class="sig-name descname"><span class="pre">test_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/Game/test_game.html#TestGame.test_run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#Game.test_game.TestGame.test_run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-Game">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Game" title="Link to this heading"></a></h2>
+<p>Module used to create a game replica of the Chrome Dinosaur.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="InfiniteRunner" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Karol Warda.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

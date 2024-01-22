@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game.Constants &mdash; InfiniteRunner (chrome dinosaur game replica) 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/fonts.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            InfiniteRunner (chrome dinosaur game replica)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">InfiniteRunner</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">InfiniteRunner (chrome dinosaur game replica)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">Game.Constants</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for Game.Constants</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;File containing all constant values used in the game, also is used to load assets from folder named &quot;Images&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<div class="viewcode-block" id="read_asset">
+<a class="viewcode-back" href="../../Game.html#Game.Constants.read_asset">[docs]</a>
+<span class="k">def</span> <span class="nf">read_asset</span><span class="p">(</span><span class="n">asset_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read the folder and extract all files that are accepted as an image</span>
+<span class="sd">       use folder name as a tag for the assets</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        asset_path (str): asset folder path</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple[str, List[pygame.Surface]]: list of images with the folder tag name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">asset_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">asset_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">asset_path</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">asset_path</span><span class="p">):</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">asset_path</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="c1"># pass on the paths that are folders</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">file_data</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+            <span class="n">asset_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_data</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">pygame</span><span class="o">.</span><span class="n">error</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skipping non-image file: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">asset_name</span><span class="p">,</span> <span class="n">asset_list</span></div>
+
+
+
+<div class="viewcode-block" id="load_asset">
+<a class="viewcode-back" href="../../Game.html#Game.Constants.load_asset">[docs]</a>
+<span class="k">def</span> <span class="nf">load_asset</span><span class="p">(</span><span class="n">root_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Look through the folders/files in the root_path. </span>
+<span class="sd">       From the found folders extract list of files to coresponding key (folder name)</span>
+<span class="sd">       If found folders contain other folders repeat the process.   </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        root_path (str): path to the folder containing assets</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dict[str, List[pygame.Surface]]: container for image files belonging to coresponding folder name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">asset_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">pygame</span><span class="o">.</span><span class="n">Surface</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="c1"># List all items in the root directory</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">root_path</span><span class="p">):</span>
+        <span class="n">item_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_path</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+
+        <span class="c1"># Check if the item is a folder</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">item_path</span><span class="p">):</span>
+            <span class="n">key</span><span class="p">,</span> <span class="n">surfaces</span> <span class="o">=</span> <span class="n">read_asset</span><span class="p">(</span><span class="n">item_path</span><span class="p">)</span>
+            <span class="n">asset_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">surfaces</span>
+
+            <span class="c1"># do this until there are no child folders left</span>
+            <span class="c1"># at the end merge them</span>
+            <span class="n">asset_dict</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">asset_dict</span><span class="p">,</span> <span class="o">**</span><span class="n">load_asset</span><span class="p">(</span><span class="n">item_path</span><span class="p">)}</span>
+
+    <span class="k">return</span> <span class="n">asset_dict</span></div>
+
+
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<span class="c1"># Constants</span>
+<span class="c1">#   Game</span>
+<span class="n">DISPLAY_NAME</span> <span class="o">=</span> <span class="s2">&quot;Dino Game&quot;</span>
+<span class="n">DISPLAY_FONT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;PressStart2P-Regular.ttf&quot;</span><span class="p">)</span>
+<span class="n">FPS</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">GAME_SPEED</span> <span class="o">=</span> <span class="mi">11</span> 
+<span class="n">GAME_SPEED_MAX</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">ANIM_FRAME</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="c1">#   Assets</span>
+<span class="n">ASSET_FOLDER_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span> <span class="s2">&quot;..&quot;</span><span class="p">,</span><span class="s2">&quot;Images&quot;</span><span class="p">)</span>
+<span class="n">ASSET_DICT</span> <span class="o">=</span> <span class="n">load_asset</span><span class="p">(</span><span class="n">ASSET_FOLDER_PATH</span><span class="p">)</span>
+<span class="c1">#   Screen </span>
+<span class="n">WIDTH</span> <span class="o">=</span> <span class="mi">1100</span>
+<span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">600</span>
+<span class="n">FULL_SCREEN</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">BACKGROUND</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">CLOUD_NUM</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">FONT_SIZE</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="c1">#   Buttons</span>
+<span class="n">BUTTON_JUMP</span> <span class="o">=</span> <span class="s2">&quot;jump&quot;</span>
+<span class="n">BUTTON_DUCK</span> <span class="o">=</span> <span class="s2">&quot;duck&quot;</span>
+<span class="n">BUTTON_QUIT</span> <span class="o">=</span> <span class="s2">&quot;quit&quot;</span>
+<span class="n">BUTTON_RESTART</span> <span class="o">=</span> <span class="s2">&quot;restart&quot;</span>
+<span class="n">BUTTON_LIST</span> <span class="o">=</span> <span class="p">[</span><span class="n">BUTTON_JUMP</span><span class="p">,</span> <span class="n">BUTTON_DUCK</span><span class="p">,</span> <span class="n">BUTTON_QUIT</span><span class="p">,</span> <span class="n">BUTTON_RESTART</span><span class="p">]</span>
+<span class="c1">#   Player position</span>
+<span class="n">DINO_POSITION_X</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">/</span> <span class="mf">7.5</span>
+<span class="n">DINO_POSITION_Y</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">/</span> <span class="mf">3.5</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">DINO_DUCK_POSITION_Y</span> <span class="o">=</span> <span class="n">DINO_POSITION_Y</span> <span class="o">+</span> <span class="mi">30</span>
+<span class="n">DINO_JUMPING</span> <span class="o">=</span> <span class="mf">8.5</span>
+<span class="n">DINO_JUMP_ACC</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">DINO_JUMP_GRAV</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="c1">#   Backgorund position</span>
+<span class="n">BG_POSITION_X</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">BG_POSITION_Y</span> <span class="o">=</span> <span class="mi">380</span>
+<span class="c1">#   Object position</span>
+<span class="n">POSITION_OBJECT_X</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">POSITION_S_CACTUS_Y</span> <span class="o">=</span> <span class="mi">325</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">POSITION_L_CACTUS_Y</span> <span class="o">=</span> <span class="mi">300</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">POSITION_BIRD_Y</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="c1">#   Score position</span>
+<span class="n">POSITION_SCORE_Y</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">POSITION_SCORE_X</span> <span class="o">=</span> <span class="mi">950</span>
+<span class="n">POSITION_HIGH_SCORE_Y</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">POSITION_HIGH_SCORE_X</span> <span class="o">=</span> <span class="mi">750</span>
+<span class="c1">#   Restart position</span>
+<span class="n">POSITION_RESTART_Y</span> <span class="o">=</span> <span class="n">HEIGHT</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">POSITION_RESTART_X</span> <span class="o">=</span> <span class="n">WIDTH</span> <span class="o">/</span> <span class="mi">2</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Karol Warda.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

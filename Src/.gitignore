@@ -1,0 +1,5 @@
+#ignore asset folder
+Images/
+
+#ignore other files
+*.ttf
