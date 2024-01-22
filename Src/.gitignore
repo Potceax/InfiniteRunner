@@ -1,5 +1,8 @@
 #ignore asset folder
-Images/
+#Images/
+
+#ignore folders
+__pycache__/
 
 #ignore other files
-*.ttf
+#*.ttf

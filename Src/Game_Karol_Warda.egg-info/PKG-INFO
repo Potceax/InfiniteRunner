@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: Game_Karol_Warda
+Version: 0.0.1
+Summary: A chrome dino game replica
+Author-email: Karol Warda <karol.warda@student.uksw.edu.pl>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: pygame
+
+# InfiniteRunner package
+
+This is a package containing replica of a chrome dino game. You can play
+[this game from here](https://github.com/Potceax/InfiniteRunner).
+
+# Assets
+Required assets and documentation can be downloaded from [here](). Assets should be placed in the /Src/ folder
