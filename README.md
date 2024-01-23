@@ -7,6 +7,21 @@ This is a package containing the replica of a chrome dino game. You can play it 
 py -m pip install "git+https://github.com/Potceax/InfiniteRunner.git#egg=Game_Karol_Warda"
 ```
 
+# How to run
+
+To run this game you need to:
+
+1. Download the package
+2. Move assets to destination described in Assets section
+3. In new .py file type:
+  ```python
+  from Game_Karol_Warda import Game
+
+  if __name__ == "__main__":
+    Game.play()
+  ```
+4. Run the .py script
+
 # Assets
 
 Required assets and documentation can be downloaded from the [main repo](https://github.com/Potceax/InfiniteRunner). 
