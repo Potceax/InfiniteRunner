@@ -4,7 +4,7 @@ This is a package containing the replica of a chrome dino game. You can play it 
 [here](https://github.com/Potceax/InfiniteRunner) with command: 
 
 ```bash
-py pip -m install "git+https://github.com/Potceax/InfiniteRunner.git#egg=Game_Karol_Warda"
+py -m pip install "git+https://github.com/Potceax/InfiniteRunner.git#egg=Game_Karol_Warda"
 ```
 
 # Assets
