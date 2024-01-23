@@ -32,3 +32,7 @@ path-to-python\lib\site-packages\Game_Karol_Warda\
 ```
 
 NOTE the Images folder and .ttf should be separated from assets folder before moving them to pip library folder
+
+# Documentation
+
+You can access documentation from docs/html/index.html
